@@ -1,14 +1,23 @@
-import { createSwitchNavigator, createAppContainer } from 'react-navigation';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/lib/integration/react';
+import { PersistorProvider } from './services/contexts';
+import Navigator from './screens';
 
-import AuthStack from './screens/Auth';
-import HomeStack from './screens/Home';
+import configureStore from './configureStore';
 
-export default createAppContainer(createSwitchNavigator(
-  {
-    Auth: createAppContainer(AuthStack),
-    Home: createAppContainer(HomeStack),
-  },
-  {
-    initialRouteName: 'Auth',
-  },
-));
+const reduxStore = configureStore();
+
+const App = () => (
+  <Provider store={reduxStore.store}>
+    <PersistGate persistor={reduxStore.persistor}>
+      <PersistorProvider
+        value={{ persistor: reduxStore.persistor }}
+      >
+        <Navigator />
+      </PersistorProvider>
+    </PersistGate>
+  </Provider>
+);
+
+export default App;

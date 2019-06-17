@@ -8,7 +8,7 @@ import { createNavigationReducer } from 'react-navigation-redux-helpers';
 import authReducer from './services/auth/reducer';
 import * as authTypes from './services/auth/constants';
 
-import AppNavigator from './index';
+import AppNavigator from './screens';
 
 const storage = FSStorage(DocumentDir, 'parkmonitor');
 
@@ -33,22 +33,22 @@ const appPersistConfig = {
   blacklist: ['ui'],
 };
 
-const uiPersistConfig = {
-  timeout: 30000,
-  key: 'ui',
-  keyPrefix: '',
-  storage,
-  stateReconciler: autoMergeLevel2,
-  blacklist: [],
-};
+// const uiPersistConfig = {
+//   timeout: 30000,
+//   key: 'ui',
+//   keyPrefix: '',
+//   storage,
+//   stateReconciler: autoMergeLevel2,
+//   blacklist: [],
+// };
 
-const uiReducer = combineReducers({
+// const uiReducer = combineReducers({
 
-});
+// });
 
 const appReducer = combineReducers({
   entities: entitiesReducer,
-  ui: persistReducer(uiPersistConfig, uiReducer),
+  // ui: persistReducer(uiPersistConfig, uiReducer),
 });
 
 const navReducer = createNavigationReducer(AppNavigator);

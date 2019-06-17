@@ -16,7 +16,14 @@ export default createStackNavigator(
     Find: {
       screen: Find,
       navigationOptions: {
-        header: null,
+        title: 'Find a space',
+        headerTitleStyle: {
+          fontFamily: 'Raleway-Bold',
+        },
+        headerStyle: {
+          backgroundColor: '#8447FF',
+        },
+        headerTintColor: '#FFFFFF',
       },
     },
     Menu: {

@@ -33,7 +33,6 @@ class SignupForm extends Component {
           placeholder="Email"
           keyboardType="email-address"
           returnKeyType="next"
-          autoFocus
         />
         <Field
           name="prepass"
@@ -42,7 +41,6 @@ class SignupForm extends Component {
           placeholder="Password"
           secureTextEntry
           returnKeyType="next"
-          autoFocus
         />
         <Field
           name="confirmation"
@@ -51,7 +49,6 @@ class SignupForm extends Component {
           placeholder="Confirm Password"
           secureTextEntry
           returnKeyType="next"
-          autoFocus
         />
       </View>
     );

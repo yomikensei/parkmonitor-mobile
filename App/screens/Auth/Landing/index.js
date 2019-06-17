@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
-
-const { height } = Dimensions.get('window');
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,7 +11,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   section_buttons: {
-    top: (height - 200) * 0.5,
+    top: 100,
     alignItems: 'center',
   },
   button: {

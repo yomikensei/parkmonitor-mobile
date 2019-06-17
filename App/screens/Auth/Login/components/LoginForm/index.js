@@ -34,7 +34,6 @@ class LoginForm extends Component {
           placeholder="Password"
           secureTextEntry
           returnKeyType="next"
-          autoFocus
         />
       </View>
     );

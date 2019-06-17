@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import LoginForm from './components/LoginForm';
 
 const styles = StyleSheet.create({
@@ -15,26 +15,20 @@ const styles = StyleSheet.create({
     top: 100,
     alignItems: 'center',
   },
-  button: {
-    width: '80%',
-    backgroundColor: '#8447ff',
-    borderRadius: 7,
-    height: 50,
-    justifyContent: 'center',
-    flexDirection: 'row',
-    marginVertical: 5,
-    marginTop: 20,
-  },
-  text_button: {
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    color: '#FFFFFF',
-    fontFamily: 'Raleway-Bold',
-    fontSize: 18,
-  },
 });
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.submitLogin = this.submitLogin.bind(this);
+  }
+
+  submitLogin(values) {
+    const { navigation: { navigate } } = this.props;
+    console.log(values);
+    navigate('Home');
+  }
+
   render() {
     // const { navigation: { navigate } } = this.props;
     return (
@@ -43,15 +37,7 @@ class Login extends Component {
           Login Page
         </Text>
         <View style={styles.section_form}>
-          <LoginForm />
-          <TouchableOpacity
-            style={styles.button}
-          // onPress={() => navigate('Signup')}
-          >
-            <Text style={styles.text_button}>
-              Login
-            </Text>
-          </TouchableOpacity>
+          <LoginForm onSubmit={this.submitLogin} />
         </View>
       </View>
     );

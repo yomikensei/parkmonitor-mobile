@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import SignupForm from './components/SignupForm';
 
 const styles = StyleSheet.create({
@@ -15,42 +15,28 @@ const styles = StyleSheet.create({
     top: 100,
     alignItems: 'center',
   },
-  button: {
-    width: '80%',
-    backgroundColor: '#8447ff',
-    borderRadius: 7,
-    height: 50,
-    justifyContent: 'center',
-    flexDirection: 'row',
-    marginVertical: 5,
-    marginTop: 20,
-  },
-  text_button: {
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    color: '#FFFFFF',
-    fontFamily: 'Raleway-Bold',
-    fontSize: 18,
-  },
 });
+
 class Signup extends Component {
+  constructor(props) {
+    super(props);
+    this.submitSignup = this.submitSignup.bind(this);
+  }
+
+  submitSignup(values) {
+    const { navigation: { navigate } } = this.props;
+    console.log(values);
+    navigate('Home');
+  }
+
   render() {
-    // const { navigation: { navigate } } = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.text}>
           Signup Page
         </Text>
         <View style={styles.section_form}>
-          <SignupForm />
-          <TouchableOpacity
-            style={styles.button}
-          // onPress={() => navigate('Signup')}
-          >
-            <Text style={styles.text_button}>
-              Login
-            </Text>
-          </TouchableOpacity>
+          <SignupForm onSubmit={this.submitSignup} />
         </View>
       </View>
     );

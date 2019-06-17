@@ -3,6 +3,8 @@ import { reduxForm, Field } from 'redux-form';
 import {
   View,
   StyleSheet,
+  Text,
+  TouchableOpacity,
 } from 'react-native';
 
 import TextInput from '../../../../../components/TextInput';
@@ -12,10 +14,27 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: '80%',
   },
+  button: {
+    backgroundColor: '#8447ff',
+    borderRadius: 7,
+    height: 50,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    marginVertical: 5,
+    marginTop: 20,
+  },
+  text_button: {
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    color: '#FFFFFF',
+    fontFamily: 'Raleway-Bold',
+    fontSize: 18,
+  },
 });
 
 class SignupForm extends Component {
   render() {
+    const { handleSubmit } = this.props;
     return (
       <View style={styles.container}>
         <Field
@@ -50,6 +69,15 @@ class SignupForm extends Component {
           secureTextEntry
           returnKeyType="next"
         />
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={handleSubmit}
+        >
+          <Text style={styles.text_button}>
+            Login
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }

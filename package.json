@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "lint": "eslint App/**/*.js"
+    "lint": "eslint App/**/*.js",
+    "postinstall": "jetify"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.5.0",
@@ -14,6 +15,7 @@
     "react": "16.8.3",
     "react-native": "0.59.8",
     "react-native-fs": "^2.13.3",
+    "react-native-geolocation-service": "^2.0.1",
     "react-native-gesture-handler": "^1.2.2",
     "react-native-global-props": "^1.1.5",
     "react-native-maps": "^0.24.2",
@@ -44,6 +46,7 @@
     "eslint-plugin-react": "^7.12.4",
     "eslint-watch": "^5.0.1",
     "jest": "^24.8.0",
+    "jetifier": "^1.5.1",
     "metro-react-native-babel-preset": "^0.54.1",
     "react-test-renderer": "16.8.3"
   },
